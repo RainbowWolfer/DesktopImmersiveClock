@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="DesktopImmersiveClock.Analog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DesktopImmersiveClock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+	<Page.Resources>
+		<SolidColorBrush x:Name="MyFront" Color="{ThemeResource SystemColorButtonFaceColor}"/>
+		<SolidColorBrush x:Name="MyBack" Color="{ThemeResource SystemColorBackgroundColor}"/>
+	</Page.Resources>
+	<Grid RenderTransformOrigin="0.5,0.5">
+		<Grid.RenderTransform>
+			<CompositeTransform ScaleX="1.6" ScaleY="1.6"/>
+		</Grid.RenderTransform>
+		<Ellipse Height="300" Width="300" Fill="{StaticResource MyFront}"/>
+		<Ellipse Height="280" Width="280" Fill="{StaticResource MyBack}"/>
+		<Ellipse Height="10" Width="10" Fill="{StaticResource MyFront}"/>
+		<Rectangle Height="80" Width="10" Fill="{StaticResource MyFront}" RenderTransformOrigin="0.5,1">
+			<Rectangle.RenderTransform>
+				<CompositeTransform x:Name="Hour" TranslateY="-40" Rotation="0"/>
+			</Rectangle.RenderTransform>
+		</Rectangle>
+		<Rectangle Height="100" Width="5" Fill="{StaticResource MyFront}" RenderTransformOrigin="0.5,1">
+			<Rectangle.RenderTransform>
+				<CompositeTransform x:Name="Minute" TranslateY="-50" Rotation="230"/>
+			</Rectangle.RenderTransform>
+		</Rectangle>
+		<Rectangle Height="130" Width="2" Fill="{StaticResource MyFront}" RenderTransformOrigin="0.5,1">
+			<Rectangle.RenderTransform>
+				<CompositeTransform x:Name="Second" TranslateY="-65" Rotation="120"/>
+			</Rectangle.RenderTransform>
+		</Rectangle>
+	</Grid>
+</Page>

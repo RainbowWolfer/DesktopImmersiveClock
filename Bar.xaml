@@ -1,0 +1,86 @@
+﻿<UserControl
+    x:Class="DesktopImmersiveClock.Bar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DesktopImmersiveClock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls" 
+    xmlns:media="using:Microsoft.UI.Xaml.Media"
+    mc:Ignorable="d"
+	Height="720"
+	Width="150">
+
+	<UserControl.Resources>
+		<media:AcrylicBrush x:Key="CustomAcrylicBrush" BackgroundSource="Backdrop"
+            TintOpacity="0.3" TintColor="Gray" FallbackColor="#FF008000"/>
+		<Style x:Key="MyTextStyle" x:Name="MyTextStyleForName" TargetType="TextBlock">
+			<Setter Property="FontSize" Value="36"/>
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="Foreground" Value="DarkGray"/>
+		</Style>
+		<Storyboard x:Name="MyStoryboard" Duration="{x:Bind AnimationDuration}">
+			<DoubleAnimation Storyboard.TargetName="CenterNumberText" Storyboard.TargetProperty="Opacity" From="1" To="0" >
+				<DoubleAnimation.EasingFunction>
+					<ExponentialEase Exponent="{x:Bind AnimationSpeed}" EasingMode="EaseOut" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+			<DoubleAnimation Storyboard.TargetName="CenterNumberText_CompositeTransform" Storyboard.TargetProperty="TranslateY" From="0" To="30" >
+				<DoubleAnimation.EasingFunction>
+					<ExponentialEase Exponent="{x:Bind AnimationSpeed}" EasingMode="EaseOut" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+			<DoubleAnimation Storyboard.TargetName="ComingNumberText" Storyboard.TargetProperty="Opacity" From="0" To="1" >
+				<DoubleAnimation.EasingFunction>
+					<ExponentialEase Exponent="{x:Bind AnimationSpeed}" EasingMode="EaseOut" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+			<DoubleAnimation Storyboard.TargetName="ComingNumberText_CompositeTransform" Storyboard.TargetProperty="TranslateY" From="-40" To="0" >
+				<DoubleAnimation.EasingFunction>
+					<ExponentialEase Exponent="{x:Bind AnimationSpeed}" EasingMode="EaseOut" />
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+		</Storyboard>
+	</UserControl.Resources>
+
+	<Grid>
+		<Grid.RenderTransform>
+			<CompositeTransform ScaleX="1" ScaleY="1"/>
+		</Grid.RenderTransform>
+		<controls:DropShadowPanel x:Name="BackGroundShadowPanel" Color="Gray" OffsetX="-10" OffsetY="-10" BlurRadius="50" ShadowOpacity=".7" Width="80" Height="720" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5">
+			<controls:DropShadowPanel.RenderTransform>
+				<CompositeTransform x:Name="PanelTransform" TranslateX="0" TranslateY="0"/>
+			</controls:DropShadowPanel.RenderTransform>
+			<Rectangle Fill="#222222" RadiusX="30" RadiusY="30" RenderTransformOrigin="0.5,0.5"/>
+		</controls:DropShadowPanel>
+		<StackPanel x:Name="TextPanel" HorizontalAlignment="Center" VerticalAlignment="Center">
+			<StackPanel.RenderTransform>
+				<CompositeTransform x:Name="TextPanelTransform" TranslateX="0" TranslateY="0
+				"/>
+			</StackPanel.RenderTransform>
+			<TextBlock Text="0" Style="{StaticResource MyTextStyle}" Opacity="1"/>
+			<TextBlock Text="1" Style="{StaticResource MyTextStyle}" Opacity="1"/>
+			<TextBlock Text="2" Style="{StaticResource MyTextStyle}" Opacity="1"/>
+			<TextBlock Text="3" Style="{StaticResource MyTextStyle}" Opacity="1"/>
+			<TextBlock Text="4" Style="{StaticResource MyTextStyle}" Opacity="1"/>
+			<TextBlock Text="5" Style="{StaticResource MyTextStyle}" Opacity="1"/>
+			<TextBlock Text="6" Style="{StaticResource MyTextStyle}" Opacity="1"/>
+			<TextBlock Text="7" Style="{StaticResource MyTextStyle}" Opacity="1"/>
+			<TextBlock Text="8" Style="{StaticResource MyTextStyle}" Opacity="1"/>
+			<TextBlock Text="9" Style="{StaticResource MyTextStyle}" Opacity="1"/>
+		</StackPanel>
+		<controls:DropShadowPanel Color="Gray" OffsetX="-10" OffsetY="-10" BlurRadius="50" ShadowOpacity=".7" Width="110" Height="110" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5">
+			<Ellipse Fill="{ThemeResource CustomAcrylicBrush}" Opacity="0.8"/>
+		</controls:DropShadowPanel>
+		<TextBlock x:Name="CenterNumberText" Text="1" FontSize="46" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+			<TextBlock.RenderTransform>
+				<CompositeTransform x:Name="CenterNumberText_CompositeTransform" TranslateX="0" TranslateY="0"/>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+		<TextBlock x:Name="ComingNumberText" Text="2" FontSize="64" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0" FontWeight="Bold">
+			<TextBlock.RenderTransform>
+				<CompositeTransform x:Name="ComingNumberText_CompositeTransform" TranslateX="0" TranslateY="-50"/>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+	</Grid>
+</UserControl>
