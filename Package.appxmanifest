@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="3b890253-58c1-4f8a-8583-e394170cd375"
-    Publisher="CN=RainbowWolfer"
+    Name="25737563C6D7A.ImmersiveClock"
+    Publisher="CN=08AE6180-69D9-4F58-9803-4063AA29A554"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="3b890253-58c1-4f8a-8583-e394170cd375" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="f982d8dc-3b35-44dd-9815-b7a0e0a766c7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>DesktopImmersiveClock</DisplayName>
-    <PublisherDisplayName>RainbowWolfer</PublisherDisplayName>
+    <DisplayName>Immersive Clock</DisplayName>
+    <PublisherDisplayName>蔚家旭</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,11 +32,17 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="DesktopImmersiveClock.App">
       <uap:VisualElements
-        DisplayName="DesktopImmersiveClock"
+        DisplayName="Immersive Clock"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        BackgroundColor="transparent" Description="Hello World">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        BackgroundColor="transparent" Description="A simple Desktop Clock">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="Immersive Clock" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo"/>
+            <uap:ShowOn Tile="wide310x150Logo"/>
+            <uap:ShowOn Tile="square310x310Logo"/>
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile >
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
         <uap:InitialRotationPreference>
           <uap:Rotation Preference="landscape"/>
