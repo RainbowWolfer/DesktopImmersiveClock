@@ -18,6 +18,7 @@
 				<ScrollViewer>
 					<Grid>
 						<Grid.RowDefinitions>
+							<RowDefinition Height="auto"/>
 							<RowDefinition Height="300"/>
 							<RowDefinition Height="300"/>
 							<RowDefinition Height="300"/>
@@ -33,7 +34,8 @@
 							<media:AcrylicBrush x:Key="CustomAcrylicBrush" BackgroundSource="Backdrop"
             TintOpacity="0.3" TintColor="Gray" FallbackColor="#FF008000" />
 						</Grid.Resources>
-						<Button x:Name="SlideButton" Tapped="SlideButton_Tapped" Grid.Row="0" Style="{StaticResource MyButtonStyle}">
+						<Button x:Name="AboutButton" Content="About" Grid.Row="0" HorizontalAlignment="Stretch" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Padding="10" FontSize="18" Click="AboutButton_Click"/>
+						<Button x:Name="SlideButton" Tapped="SlideButton_Tapped" Grid.Row="1" Style="{StaticResource MyButtonStyle}">
 							<Button.Content>
 								<Grid>
 									<controls:DropShadowPanel Color="Gray" OffsetX="-10" OffsetY="-10" BlurRadius="50" ShadowOpacity=".7" Width="80" Height="200" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
@@ -46,7 +48,7 @@
 								</Grid>
 							</Button.Content>
 						</Button>
-						<Button x:Name="AnalogButton" Tapped="AnalogButton_Tapped" Grid.Row="1" Style="{StaticResource MyButtonStyle}">
+						<Button x:Name="AnalogButton" Tapped="AnalogButton_Tapped" Grid.Row="2" Style="{StaticResource MyButtonStyle}">
 							<Button.Content>
 								<Grid>
 									<Ellipse Height="200" Width="200" Fill="{ThemeResource SystemColorButtonFaceColor}"/>
@@ -70,7 +72,7 @@
 								</Grid>
 							</Button.Content>
 						</Button>
-						<Button x:Name="DigitalButton" Tapped="DigitalButton_Tapped" Grid.Row="2" Style="{StaticResource MyButtonStyle}">
+						<Button x:Name="DigitalButton" Tapped="DigitalButton_Tapped" Grid.Row="3" Style="{StaticResource MyButtonStyle}">
 							<Button.Content>
 								<TextBlock Text="XX : XX : XX" FontSize="50"/>
 							</Button.Content>

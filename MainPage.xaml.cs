@@ -67,5 +67,13 @@ namespace DesktopImmersiveClock {
 		private void DigitalButton_Tapped(object sender, TappedRoutedEventArgs e) {
 			Navigate(typeof(ClassicDigit));
 		}
+
+		private async void AboutButton_Click(object sender, RoutedEventArgs e) {
+			await new ContentDialog() {
+				Title = "About",
+				Content = new AboutDialog(),
+				CloseButtonText = "Back",
+			}.ShowAsync();
+		}
 	}
 }

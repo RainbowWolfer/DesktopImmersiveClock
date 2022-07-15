@@ -9,7 +9,7 @@
   <Identity
     Name="25737563C6D7A.ImmersiveClock"
     Publisher="CN=08AE6180-69D9-4F58-9803-4063AA29A554"
-    Version="1.0.0.0" />
+    Version="1.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="f982d8dc-3b35-44dd-9815-b7a0e0a766c7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
